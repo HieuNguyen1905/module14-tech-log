@@ -5,8 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teach Blog</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>This is from index controller</h1>
+    <header>
+        <a href="/">Home</a>
+        <a href="/profile">Dashboard</a>
+        {{#if isLoggedIn}}
+            <a href="/logout">Log out</a>
+        {{else}}
+            <a href="/login">Login</a>
+            <a href="/signup">Sign up</a>
+        {{/if}}
+    </header>
+    <main>
+        {{{body}}}
+    </main>
+    <footer>This is footer</footer>
 </body>
 </html>

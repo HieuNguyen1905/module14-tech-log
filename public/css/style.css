@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+header,footer{
+    height: 15vh;
+    background: rgb(157, 232, 195);
+    display: flex;
+    justify-content: space-around;
+}
+header >a {
+    font-family: serif;
+    font-size:xx-large
+}
+main {
+    background: rgb(245, 201, 150);
+    min-height: 70vh;
+}

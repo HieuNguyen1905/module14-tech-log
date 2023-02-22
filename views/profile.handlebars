@@ -1,0 +1,14 @@
+<h1>Welcome back {{blogs.name}}</h1>
+<h2>Add a post</h2>
+<form id = "new-post-form">
+    <textarea id="post-input"></textarea>
+    <button>Post</button>
+</form>
+<h2>My post</h2>
+{{#each blogs.Blogs}}
+<section class="status-box">
+    <p>text: {{status}} </p>
+</section>
+{{/each}}
+
+<script src="/js/profile.js"></script>
