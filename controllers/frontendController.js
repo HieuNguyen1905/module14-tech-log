@@ -15,6 +15,14 @@ router.get("/", async(req,res) => {
     });
 })
 
+router.get("/edit/:id", async(req,res) =>{
+    const blog = await Blog.findByPk(req.params.id)
+    const hbsData = blog.toJSON()
+    console.log(hbsData)
+    res.render("edit",{blog:hbsData,isLoggedIn:req.session.loggedIn,
+    UserId:req.session.UserId})
+})
+
 router.get("/login",(req,res) => {
     res.render("login",{
         isLoggedIn:req.session.loggedIn,

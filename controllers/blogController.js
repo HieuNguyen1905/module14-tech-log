@@ -13,8 +13,19 @@ router.post("/", async(req,res) => {
     }
     const newBlog = await Blog.create({
         UserId: req.session.UserId,
+        title: req.body.title,
         status: req.body.status
     });
+    res.json(newBlog)
+})
+
+router.put("/:id", async(req,res) => {
+    const newBlog = await Blog.update({
+        title: req.body.title,
+        status: req.body.status
+    },{where:{
+        id:req.params.id
+    }});
     res.json(newBlog)
 })
 

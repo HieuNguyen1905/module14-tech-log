@@ -7,8 +7,10 @@ Blog.belongsTo(User);
 //FK: UserId
 
 Blog.hasMany(Comment)
+Comment.belongsTo(Blog)
 //FK: BlogId
 
+User.hasMany(Comment)
 Comment.belongsTo(User)
 //FK: UserId
 

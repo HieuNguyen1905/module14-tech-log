@@ -10,7 +10,21 @@ header,footer{
     background: rgb(157, 232, 195);
     display: flex;
     justify-content: space-around;
+    text-align: center;
 }
+
+.head{
+    display: block;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#new-post-form{
+    display: block;
+    justify-content: space-around;
+    text-align: center;
+}
+
 header >a {
     font-family: serif;
     font-size:xx-large
@@ -19,3 +33,42 @@ main {
     background: rgb(245, 201, 150);
     min-height: 70vh;
 }
+
+.blog{
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+.form-btn {
+    margin-top: 2em;
+    background:midnightblue;
+    border: 1px solid midnightblue;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+  }
+
+  .title{
+    background-color: green;
+  }

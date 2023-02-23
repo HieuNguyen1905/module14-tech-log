@@ -1,8 +1,13 @@
+<div class="head">
 <h1>HomePage</h1>
 <h2>All posts</h2>
+</div>
 {{#each blogs}}
-<section class="status-box">
-    <h2>{{User.name}} posted</h2>
-    <p>text: {{status}} </p>
-</section>
+<div class="blog">
+    <section class="status-box">
+        <h2 class="title">{{title}}</h2>
+        <h3>{{status}}</h3>
+        <p>{{User.name}} posted at {{User.createdAt}}</p>
+    </section>
+</div>
 {{/each}}
