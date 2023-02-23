@@ -10,4 +10,7 @@ router.use("/users",userRoutes)
 const blogRoutes = require("./blogController");
 router.use("/blogs",blogRoutes)
 
+const commentRoutes = require("./commentController");
+router.use("/comment",commentRoutes)
+
 module.exports = router;

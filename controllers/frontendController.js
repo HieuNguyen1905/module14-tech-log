@@ -1,5 +1,5 @@
 const express = require("express");
-const { User,Blog } = require("../models");
+const { User,Blog, Comment } = require("../models");
 const router = express.Router();
 
 router.get("/", async(req,res) => {
@@ -7,12 +7,34 @@ router.get("/", async(req,res) => {
     console.log(blog)
     const hbsData = blog.map(status => status.toJSON())
     console.log("===========")
-    console.log(hbsData)
+    console.log(req.session.loggedIn)
     res.render("home",{
         blogs:hbsData,
         isLoggedIn:req.session.loggedIn,
         UserId:req.session.UserId
     });
+})
+
+router.get("/seecomment/:id", async(req,res) =>{
+    if(!req.session.UserId){
+        return res.redirect("/login")
+    }
+    const blog = await Blog.findByPk(req.params.id,{include:[Comment]})
+    const hbsData = blog.toJSON()
+    console.log(hbsData)
+    res.render("seecomment",{blogs:hbsData,isLoggedIn:req.session.loggedIn,
+    UserId:req.session.UserId})
+})
+
+router.get("/comment/:id", async(req,res) =>{
+    if(!req.session.UserId){
+        return res.redirect("/login")
+    }
+    const blog = await Blog.findByPk(req.params.id)
+    const hbsData = blog.toJSON()
+    console.log(hbsData)
+    res.render("comment",{blogs:hbsData,isLoggedIn:req.session.loggedIn,
+    UserId:req.session.UserId})
 })
 
 router.get("/edit/:id", async(req,res) =>{
