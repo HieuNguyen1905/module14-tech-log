@@ -15,25 +15,23 @@ router.get("/", async(req,res) => {
     });
 })
 
-router.get("/seecomment/:id", async(req,res) =>{
+router.get("/comment/:id", async(req,res) =>{
     if(!req.session.UserId){
         return res.redirect("/login")
     }
     const blog = await Blog.findByPk(req.params.id,{include:[Comment]})
     const hbsData = blog.toJSON()
-    console.log(hbsData)
-    res.render("seecomment",{blogs:hbsData,isLoggedIn:req.session.loggedIn,
-    UserId:req.session.UserId})
-})
 
-router.get("/comment/:id", async(req,res) =>{
-    if(!req.session.UserId){
-        return res.redirect("/login")
-    }
-    const blog = await Blog.findByPk(req.params.id)
-    const hbsData = blog.toJSON()
-    console.log(hbsData)
-    res.render("comment",{blogs:hbsData,isLoggedIn:req.session.loggedIn,
+    const personBlog = await Blog.findByPk(req.params.id,{include:[User]})
+    const hbsData2 = personBlog.toJSON()
+
+    const personComment = await Comment.findAll({where:{BlogId:req.params.id},include:[User]})
+    const hbsData3 = personComment.map(User => User.toJSON())
+
+    //console.log(hbsData)
+    console.log(hbsData2)
+    //console.log(hbsData3)
+    res.render("comment",{blogs:hbsData,personBlogs:hbsData2,personComment:hbsData3,isLoggedIn:req.session.loggedIn,
     UserId:req.session.UserId})
 })
 

@@ -19,4 +19,9 @@ router.post("/", async(req,res) => {
     res.json(newBlog)
 })
 
+router.get("/get/:id", async(req,res) => {
+    const blog = await Comment.findAll({where:{BlogId:req.params.id},include:[User]})
+    res.json(blog)
+})
+
 module.exports = router;

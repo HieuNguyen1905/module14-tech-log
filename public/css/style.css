@@ -33,7 +33,16 @@ main {
     background: rgb(245, 201, 150);
     min-height: 70vh;
 }
-
+.mid{
+    display: flex;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background:salmon;
+}
 .blog{
     padding: 10px;
     height: 100%;
