@@ -15,6 +15,13 @@ router.get("/", async(req,res) => {
     });
 })
 
+router.get("/newpost",(req,res)=>{
+    res.render("newpost",{
+        isLoggedIn:req.session.loggedIn,
+        UserId:req.session.UserId
+    });
+})
+
 router.get("/comment/:id", async(req,res) =>{
     if(!req.session.UserId){
         return res.redirect("/login")

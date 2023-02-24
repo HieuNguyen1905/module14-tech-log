@@ -2,7 +2,7 @@
 <h1>Welcome back {{blogs.name}}</h1>
 <h2>Add a post</h2>
 </div>
-<form id = "new-post-form">
+{{!-- <form id = "new-post-form">
     <div>
         <textarea id="title-input" placeholder="title"></textarea>
     </div>
@@ -10,14 +10,19 @@
         <textarea id="post-input"></textarea>
     </div>
     <button class="form-btn">+ New Post</button>
-</form>
+</form> --}}
+<a href="/newpost">
+<div class="mid">   
+<button class="new-btn form-btn">+ New Post</button>
+</a>
+</div>
 {{#if blogs.Blogs}}
 <div class="head">
     <h2>My post</h2>
 </div>
 {{/if}}
 {{#each blogs.Blogs}}
-<div class="blog">
+<div class="blog mid">
     <section class="status-box">
         <h3 class="title">{{title}}</h3>
         <button class="form-btn" name="{{id}}" id="editBtn">Edit</button>

@@ -1,13 +1,11 @@
 document.querySelector("#new-post-form").addEventListener("submit", e => {
     e.preventDefault();
-    const blogId = e.target.getAttribute("name");
-    console.log(blogId)
     const postObj = {
-        comment: document.querySelector("#comment-input").value,
-        BlogId: blogId
+        title: document.querySelector("#title-input").value,
+        status: document.querySelector("#post-input").value
     }
     console.log(postObj);
-    fetch("/comment",{
+    fetch("/blogs",{
         method:"POST",
         body:JSON.stringify(postObj),
         headers:{
@@ -15,11 +13,10 @@ document.querySelector("#new-post-form").addEventListener("submit", e => {
         }
     }).then(res =>{
         if(res.ok){
-            location.reload()
+            location.href = "/profile"
         }else{
             alert("Failed to post")
         }
     })
    
 })  
-
